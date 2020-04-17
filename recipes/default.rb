@@ -28,7 +28,7 @@ default = 'Web-Server'
 
 windows_feature default do
   action :install
-  all !Opscode::IIS::Helper.older_than_windows2012?
+  all false
   source node['iis']['source'] unless node['iis']['source'].nil?
   install_method :windows_feature_powershell
 end
@@ -37,7 +37,7 @@ if node['iis']['components']
   node['iis']['components'].each do |feature|
     windows_feature feature do
       action :install
-      all !Opscode::IIS::Helper.older_than_windows2012?
+      all false
       source node['iis']['source'] unless node['iis']['source'].nil?
     end
   end
