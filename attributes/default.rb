@@ -23,7 +23,9 @@ default['iis']['conf_dir']   = "#{ENV['WINDIR']}\\System32\\inetsrv\\config"
 default['iis']['pubroot']    = "#{ENV['SYSTEMDRIVE']}\\inetpub"
 default['iis']['docroot']    = "#{ENV['SYSTEMDRIVE']}\\inetpub\\wwwroot"
 default['iis']['cache_dir']  = "#{ENV['SYSTEMDRIVE']}\\inetpub\\temp"
-default['iis']['components'] = []
+default['iis']['components'] = ['Web-WebServer', 'Web-Common-Http', 'Web-Default-Doc', 'Web-Dir-Browsing', 'Web-Http-Errors', 'Web-Static-Content', 'Web-Http-Redirect', 'Web-Health', 'Web-Http-Logging', 
+'Web-Log-Libraries', 'Web-Request-Monitor', 'Web-Http-Tracing', 'Web-Performance', 'Web-Stat-Compression', 'Web-Dyn-Compression', 'Web-Security', 'Web-Filtering', 'Web-Basic-Auth', 'Web-Windows-Auth', 
+'Web-App-Dev', 'Web-Net-Ext45', 'Web-AppInit', 'Web-ASP', 'Web-Asp-Net45', 'Web-ISAPI-Ext', 'Web-ISAPI-Filter', 'Web-Mgmt-Tools', 'Web-Mgmt-Console', 'Web-Scripting-Tools', 'Web-Mgmt-Service']
 
 default['iis']['source'] = nil
 
