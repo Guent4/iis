@@ -31,7 +31,6 @@ windows_feature default do
   install_method :windows_feature_powershell
 end
 
-
 if node['iis']['components']
   node['iis']['components'].each do |feature|
     windows_feature feature do
@@ -39,8 +38,8 @@ if node['iis']['components']
       all false
       source node['iis']['source'] unless node['iis']['source'].nil?
       install_method :windows_feature_powershell
-	  guard_interpreter :powershell_script
-	  not_if "(Get-WindowsFeature -Name #{feature}).InstallState -eq \"Installed\""
+      guard_interpreter :powershell_script
+      not_if "(Get-WindowsFeature -Name #{feature}).InstallState -eq \"Installed\""
     end
   end
 end
@@ -48,10 +47,10 @@ end
 list_of_features = (node['iis']['components'].map { |feature| "'#{feature}'" }).join(", ")
 
 reboot 'iis install reboot' do
-	action :reboot_now
-	reason 'Required reboot to finish installation of iis windows features'
-	guard_interpreter :powershell_script
-	not_if "((Get-WindowsFeature -Name #{list_of_features}).InstallState -eq \"Installed\").Count -eq #{node['iis']['components'].count}"
+  action :reboot_now
+  reason 'Required reboot to finish installation of iis windows features'
+  guard_interpreter :powershell_script
+  not_if "((Get-WindowsFeature -Name #{list_of_features}).InstallState -eq \"Installed\").Count -eq #{node['iis']['components'].count}"
 end
 
 service 'iis' do
