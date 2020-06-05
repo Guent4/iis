@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the iis cookbook.
 
+## 6.9.0 (2020-06-05)
+
+- Adds reboot after installing Windows features, as some of them require a restart to be fully installed. 
+
 ## 6.8.1 (2018-04-03)
 
 - Fixed site resource defaulting the log_directory when not specified, thus no longer inheriting the server default
