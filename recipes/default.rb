@@ -40,7 +40,6 @@ if node['iis']['components']
       install_method :windows_feature_powershell
       guard_interpreter :powershell_script
       not_if "(Get-WindowsFeature -Name #{feature}).InstallState -eq \"Installed\""
-	  only_if { node.chef_environment != "_default" }
     end
   end
 end
