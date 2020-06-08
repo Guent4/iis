@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the iis cookbook.
 
+## 6.9.1 (2020-06-08)
+
+- Adds if block to skip reboot on local development, since Get-WindowsFeature only works on Windows Server OS
+
 ## 6.9.0 (2020-06-05)
 
 - Adds reboot after installing Windows features, as some of them require a restart to be fully installed. 
