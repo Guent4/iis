@@ -38,8 +38,6 @@ if node['iis']['components']
       all false
       source node['iis']['source'] unless node['iis']['source'].nil?
       install_method :windows_feature_powershell
-      guard_interpreter :powershell_script
-      not_if "(Get-WindowsFeature -Name #{feature}).InstallState -eq \"Installed\""
     end
   end
 end
